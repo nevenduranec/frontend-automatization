@@ -1,0 +1,1 @@
+"use strict";$(document).ready(function(){$.fn.fullpage({scrollingSpeed:500}),$(document).bind("keydown",function(a){var b=a.keyCode?a.keyCode:a.which;32===b&&$.fn.fullpage.moveSectionDown()}),$(document).bind("slideReady",function(){$(".section").removeClass("go-anim"),$(".section.active").addClass("go-anim")})});
