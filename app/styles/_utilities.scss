@@ -1,0 +1,162 @@
+/**
+ * =============================================================================
+ * Utilities
+ * =============================================================================
+ */
+
+/**
+ * Display
+ * -----------------------------------------------------------------------------
+ */
+
+.u-inline                   { display: inline !important; }
+.u-inlineBlock              { display: inline-block !important;_display:inline !important; *display:inline !important; zoom: 1; }
+.u-block                    { display: block !important; }
+.u-table                    { display: table !important; }
+.u-tableCell                { display: table-cell !important; }
+
+
+/**
+ * Layout
+ * -----------------------------------------------------------------------------
+ */
+
+.u-cf:before, .u-cf:after   { content: " "; display: table; }
+.u-cf:after                 { clear: both; }
+.u-nbfc                     { overflow: hidden; }
+.u-nbfcAlt                  { display: table-cell; width: 10000px; }
+.u-pullLeft                 { float: left !important; _display: inline !important; }
+.u-pullRight                { float: right !important; _display: inline !important; }
+.u-objLeft                  { float: left !important; margin-right: 10px; }
+.u-objRight                 { float: right !important; margin-left: 10px; }
+.u-objLeft img, .u-objRight img
+                            { display: block; max-width: none; }
+.u-objectCenter             { margin: 0 auto; }
+.u-alignTop                 { vertical-align: top !important; }
+.u-alignMiddle              { vertical-align: middle !important; }
+.u-alignBaseline            { vertical-align: baseline !important; }
+.u-alignBottom              { vertical-align: bottom !important; }
+
+
+/**
+ * Dimensions
+ * -----------------------------------------------------------------------------
+ */
+
+.u-sizeFit                  { display: block; float: left; width: auto !important; }
+.u-sizeFill                 { display: block; overflow: hidden; width: auto !important; }
+.u-sizeFillAlt              { display: table-cell; max-width: 100%; width: 10000px; }
+.u-sizeFull                 { display: block; width: 100%; }
+
+
+/**
+ * State
+ * -----------------------------------------------------------------------------
+ */
+
+.u-isHidden                 { display: none !important; visibility: hidden !important; }
+.u-isHiddenVisually         { position: absolute !important; overflow: hidden; width: 1px; height: 1px; border: 0; clip: rect(1px,1px,1px,1px); padding: 0; }
+.u-isVisible                { visibility: visible; }
+.u-isInvisible              { visibility: hidden; }
+.u-isActionable             { cursor: pointer; }
+.u-isDraggable              { cursor: move; }
+.u-isDisabled               { cursor: default; }
+.u-isLoading                { opacity: .6; }
+html.js .js-isHidden        { display: none; }
+
+
+/**
+ * Text and Fonts
+ * -----------------------------------------------------------------------------
+ */
+
+.u-textTruncate             { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; word-wrap: normal; }
+.u-textBreak                { word-break: break-word; word-wrap: break-word; }
+.u-textCenter               { text-align: center; }
+.u-textLeft                 { text-align: left; }
+.u-textRight                { text-align: right; }
+.u-fontStrong               { font-weight: bold !important; }
+.u-fontItalic               { font-style: italic !important; }
+.u-fontDefault              { font-weight: normal !important; font-style: normal !important; text-transform: none !important; }
+.u-textUppercase            { text-transform: uppercase !important; }
+.u-textLowercase            { text-transform: lowercase !important; }
+.u-textUnderline            { text-decoration: underline !important; }
+.u-textReplace              { text-indent: -100%; white-space: nowrap; overflow: hidden; }
+
+
+
+.mt-0 { margin-top: 0 !important; }
+.mt-40 { margin-top: 40px !important; }
+.mt-100 { margin-top: 100px; }
+
+.mb-40 { margin-bottom: 40px !important; }
+
+.pt-60 { padding-top: 60px; }
+.pt-0 { padding-top: 0 !important; }
+
+
+
+
+/**
+ * Visibility On Devices
+ * -----------------------------------------------------------------------------
+ */
+
+/*
+    SMALL:          <=600
+    MEDIUM:           601 - <=989
+    LARGE:            990 - <=1279, default
+    XLARGE:         >=1280
+*/
+
+/*
+    Very large display targeting
+*/
+@media only screen and (min-width: 1200px) {
+    .rwd-visible-small, .rwd-visible-medium, .rwd-visible-medium-down, .rwd-visible-large, .rwd-hidden-large-up, .rwd-hidden-xlarge
+        { display: none !important; }
+}
+
+/*
+    Large display targeting
+*/
+@media only screen and (min-width: 990px) and (max-width: 1199px) {
+    .rwd-visible-small, .rwd-visible-medium, .rwd-visible-medium-down, .rwd-hidden-large, .rwd-hidden-large-up, .rwd-visible-xlarge { display: none !important; }
+}
+
+/*
+    Medium display targeting
+*/
+@media only screen and (min-width: 601px) and (max-width: 989px) {
+    .rwd-visible-small, .rwd-hidden-medium, .rwd-hidden-medium-down, .rwd-visible-large, .rwd-visible-large-up, .rwd-visible-xlarge
+    { display: none !important; }
+}
+
+/*
+    Small display targeting
+*/
+@media only screen and (max-width: 600px) {
+    .rwd-hidden-small, .rwd-visible-medium, .rwd-hidden-medium-down, .rwd-visible-large, .rwd-visible-large-up, .rwd-visible-xlarge
+    { display: none !important; }
+}
+
+/*
+    Orientation targeting
+*/
+.rwd-hidden-landscape, .rwd-visible-portrait { display: none !important; }
+
+@media screen and (orientation: landscape) {
+    .rwd-hidden-landscape, .rwd-visible-portrait
+    { display: none !important; }
+}
+
+@media screen and (orientation: portrait) {
+    .rwd-hidden-portrait, .rwd-visible-landscape
+    { display: none !important; }
+}
+
+/*
+    Touch-enabled device targeting
+*/
+.rwd-visible-touch          { display: none !important;  }
+.touch .rwd-hidden-touch    { display: none !important; }

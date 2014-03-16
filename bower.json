@@ -1,0 +1,11 @@
+{
+  "name": "frontend-automatization",
+  "private": true,
+  "dependencies": {
+    "modernizr": "~2.6.2",
+    "jquery": "~1.11.0",
+    "fullPage.js": "~1.7.6",
+    "jquery-easing": "*"
+  },
+  "devDependencies": {}
+}

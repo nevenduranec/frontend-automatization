@@ -1,0 +1,258 @@
+/**
+ * =============================================================================
+ * Grid
+ * =============================================================================
+ */
+
+.g-wrapper-outer {
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}
+
+    .g-wrapper-outer > .g-container { height: 100%; }
+
+.g-wrapper {
+    margin: 0 auto;
+    min-width: 960px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+    width: 100%;
+}
+
+.g-container {
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+}
+
+.g {
+    display: block;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    text-rendering: optimizespeed;
+    width: 100%;
+
+    &.g--center {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+
+}
+
+// @todo: izvesti pomoću display inline-block helpera
+.g-1, .g-2, .g-3, .g-4, .g-5, .g-6, .g-7, .g-8, .g-9, .g-10, .g-11, .g-12, .g-13, .g-14, .g-15 .g-16, .g-inner, .g-full {
+    display: inline-block;
+    zoom: 1;
+    padding-left: 10px;
+    padding-right: 10px;
+    letter-spacing: normal;
+    word-spacing: normal;
+    vertical-align: top;
+    text-rendering: auto;
+    position: relative;
+    text-align: left;
+    margin-right: -4px;
+    *display: inline;
+}
+
+.g-full {
+    clear: both;
+    display: block;
+    width: 100%;
+}
+
+/**
+ * Generate top level classes
+ * ----------------------
+ * .g-1
+ * .g-2
+ * .g-3
+ */
+@for $i from 1 through $grid-columns {
+    .g-#{$i} {
+        width: percentage($i/$grid-columns);
+
+        // add extra properties on last
+        @if $i == $grid-columns {
+            clear: both;
+            display: block;
+        }
+
+    }
+
+}
+
+/**
+ * RWD for top level classes
+ * ----------------------
+ *
+ */
+
+@media screen and (max-width:mq-em($bp-beta-s - 1)) {
+
+    @for $i from 1 through $grid-columns - 1 {
+        .g-#{$i} {
+            //width: percentage($i*2/$grid-columns);
+            width: percentage(($i*4)/($grid-columns*3)); // 3 columns
+
+            @if $i >= ($grid-columns/2) {
+                width: 100%;
+            }
+
+        }
+
+    }
+
+}
+
+@media screen and (max-width:mq-em($bp-alpha - 1)) {
+
+    @for $i from 1 through $grid-columns - 1 {
+        .g-#{$i} {
+            width: percentage($i*2/$grid-columns);
+
+            @if $i >= ($grid-columns/2) {
+                width: 100%;
+            }
+
+        }
+
+    }
+
+}
+
+@media screen and (max-width:mq-em($bp-alpha-s - 1)) {
+
+    @for $i from 1 through $grid-columns - 1 {
+        .g-#{$i} {
+            width: percentage($i*3/$grid-columns);
+
+            @if $i >= ($grid-columns/3) {
+                width: 100%;
+            }
+
+        }
+
+    }
+
+}
+
+/**
+ * Generate child classes
+ * ----------------------
+ * .g-2 .g-1
+ * .g-2 .g-2
+ * .g-1 .g-1
+ */
+
+$j: $grid-columns - 1;
+@while($j>0) {
+    .g-#{$j} {
+
+        @for $i from 1 through $j {
+            .g-#{$i} {
+                width: percentage($i/$j);
+
+                // add extra properties on last
+                @if $i == $j {
+                    clear: both;
+                    display: block;
+                }
+
+            }
+
+        }
+
+    }
+
+    $j: $j - 1;
+
+}
+
+/**
+ * RWD for child classes
+ * ----------------------
+ *
+ */
+
+@media screen and (max-width:mq-em($bp-alpha-s - 1)) {
+
+    $j: $grid-columns - 1;
+    @while($j>0) {
+        .g-#{$j} {
+
+            @for $i from 1 through $j {
+                .g-#{$i} {
+                    width: 100%;
+                }
+
+            }
+
+        }
+
+        $j: $j - 1;
+
+    }
+
+}
+
+/**
+ * Generate child offset classes
+ * ----------------------
+ * .g-3 .g-offset-1
+ * .g-3 .g-offset-2
+ * .g-2 .g-offset-1
+ */
+
+$j: $grid-columns;
+@while($j>1) {
+    .g-#{$j} {
+
+        @for $i from 1 through ( $j - 1 ) {
+            .g-offset-#{$i} {
+                margin-left: percentage($i/$j);
+            }
+
+        }
+
+    }
+
+    $j: $j - 1;
+
+}
+
+
+$j: $grid-columns;
+@while($j>1) {
+    .g-#{$j} {
+
+        @for $i from 1 through ( $j - 1 ) {
+            .g-offset-_#{$i} {
+                margin-left: - percentage($i/$j);
+            }
+
+        }
+
+    }
+
+    $j: $j - 1;
+
+}
+
+/**
+ * RWD for child offset classes
+ * ----------------------
+ *
+ */
+
+@media screen and (max-width:mq-em($bp-beta-s - 1)) {
+
+    [class*="g-offset-"] {
+        margin-left: 0 !important;
+    }
+
+}

@@ -1,0 +1,26 @@
+// bower:scss
+// endbower
+
+@import '_globals.scss';
+@import '_grid.scss';
+@import '_utilities.scss';
+@import 'mixins.scss';
+
+body {
+    background: #fafafa;
+    font-family: 'Flamenco', sans-serif;
+    color: #333;
+}
+
+h1 { font-size: 100px; font-weight: 400; padding-bottom: 1em; margin: 1em 0; border-bottom: #d3d3d3 1px solid; }
+ul { margin: 0; padding: 0; }
+
+p, li { font-size: 80px; }
+
+.Logos { text-align: center; }
+.Logos li { vertical-align: middle; text-align: center; }
+.Logos li img { max-width: 100% }
+
+
+h1 img { @include transition(all .2s ease-out); @include transform(scale(0)); }
+.go-anim h1 img { @include transform(scale(1)); }
