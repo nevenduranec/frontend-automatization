@@ -12,21 +12,24 @@ body {
     color: #333;
 }
 
-h1 { font-size: 100px; font-weight: 400; padding-bottom: 1em; margin-bottom: 1em; margin-top: 0; border-bottom: #d3d3d3 1px solid; }
+h1 { font-size: 100px; font-weight: 400; @include rem('padding-bottom', 40); @include rem('margin-bottom', 40); margin-top: 0; border-bottom: #d3d3d3 1px solid; }
     .demoTime h1 { padding-bottom: 0; margin-bottom: 0; border: 0; }
+
 ul { margin: 0; padding: 0; }
 
-p, li { font-size: 80px; }
+h2 { @include rem('font-size', 80); @include rem('line-height', 90); margin: 0; @include rem('margin-bottom', 40); }
+p { margin: 0; @include rem('font-size', 60); @include rem('line-height', 70); }
+
 
 .Logos { text-align: center; }
 .Logos li { vertical-align: middle; text-align: center; }
 .Logos li img { max-width: 80% }
 
 
-h1 img { @include transition(all .2s ease-out); @include transform(scale(0)); }
+h1 img { @include transition(all .5s ease-out); @include transform(scale(0)); width: 20%; }
 .go-anim h1 img { @include transform(scale(1)); }
 
-p { margin: 0; line-height: 90px; }
+
 
 .demoTime svg { width: 50%; }
 path {
