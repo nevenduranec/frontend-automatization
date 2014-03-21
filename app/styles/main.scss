@@ -12,6 +12,8 @@ body {
     color: #333;
 }
 
+a { color: #c20a00; }
+
 h1 { font-size: 100px; font-weight: 400; @include rem('padding-bottom', 40); @include rem('margin-bottom', 40); margin-top: 0; border-bottom: #d3d3d3 1px solid; }
     .demoTime h1 { padding-bottom: 0; margin-bottom: 0; border: 0; }
 
